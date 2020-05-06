@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import Navbar from './componetns/Navbar';
+import BookList from './componetns/BookList';
+import ThemeContextProvider from './componetns/context/ThemeContext';
+import BookContextprovider from './componetns/context/BookContext';
+import ToggleTheme from './componetns/ToggleTheme';
+import AuthContextProvider from './componetns/context/AuthContext';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <ThemeContextProvider>
+        <AuthContextProvider>
+          <Navbar />
+          <BookContextprovider>
+            <BookList />
+          </BookContextprovider>
+          <ToggleTheme />
+        </AuthContextProvider>
+      </ThemeContextProvider>
     </div>
   );
 }
